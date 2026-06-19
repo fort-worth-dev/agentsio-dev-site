@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- ============================================================= -->
+<!-- EDIT ME: title + description shape your Google + social preview -->
+<!-- ============================================================= -->
+<title>agentsio.dev — Agentic workflows, designed and shipped</title>
+<meta name="description" content="Independent AI consulting for agentic workflows. I help teams design, build, and ship reliable AI agents that do real work.">
+
+<!-- Favicons (files sit next to this page) -->
+<link rel="icon" href="./favicon.ico" sizes="any">
+<link rel="icon" href="./agentsio-favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="./apple-touch-icon-180.png">
+
+<!-- Social / Open Graph. Replace the URL with your live domain. -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="agentsio.dev — Agentic workflows, designed and shipped">
+<meta property="og:description" content="Independent AI consulting for agentic workflows. Design, build, and ship reliable AI agents.">
+<meta property="og:image" content="https://agentsio.dev/og-card.png">
+<meta property="og:url" content="https://agentsio.dev">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --ink:#0E2A47;          /* mid navy — section bg */
+    --ink-deep:#081d33;     /* deep navy — hero / footer */
+    --teal:#15B8C7;         /* accent / active node */
+    --teal-deep:#0E9AA8;    /* hover */
+    --line-dark:rgba(255,255,255,.10);
+    --line-dark-soft:rgba(255,255,255,.06);
+    --text-muted-on-dark:#A9BCD0;
+    --text-subtle-on-dark:#9DB2C6;
+    --font-display:'Space Grotesk',ui-sans-serif,system-ui,sans-serif;
+    --font-body:'Inter',ui-sans-serif,system-ui,-apple-system,sans-serif;
+    --font-mono:ui-monospace,'SF Mono',Menlo,Consolas,monospace;
+    --container:1140px;
+    --radius:14px;
+  }
+
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;font-family:var(--font-body);color:#fff;
+    background:var(--ink-deep);line-height:1.7;
+    -webkit-font-smoothing:antialiased;font-size:17px;
+  }
+  h1,h2,h3{font-family:var(--font-display);line-height:1.1;margin:0;font-weight:600}
+  p{margin:0}
+  a{color:inherit}
+  .container{max-width:var(--container);margin:0 auto;padding:0 24px}
+  .eyebrow{
+    font-family:var(--font-mono);font-size:.78rem;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--teal-deep);margin:0 0 14px;
+  }
+  .eyebrow.on-dark{color:var(--teal)}
+
+  /* ---------- buttons ---------- */
+  .btn{
+    display:inline-flex;align-items:center;gap:.5rem;font-family:var(--font-display);
+    font-weight:500;font-size:.98rem;text-decoration:none;cursor:pointer;
+    padding:.78rem 1.4rem;border-radius:999px;border:1.5px solid transparent;
+    transition:transform .15s ease,background .15s ease,border-color .15s ease,color .15s ease;
+  }
+  .btn-primary{background:var(--teal);color:var(--ink-deep)}
+  .btn-primary:hover{background:var(--teal-deep);transform:translateY(-1px)}
+  .btn-ghost{background:transparent;border-color:var(--line-dark);color:#fff}
+  .btn-ghost:hover{border-color:#fff;transform:translateY(-1px)}
+
+  /* ---------- header ---------- */
+  header{position:sticky;top:0;z-index:50;background:rgba(8,29,51,.88);
+    backdrop-filter:saturate(180%) blur(10px);border-bottom:1px solid var(--line-dark-soft)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:72px}
+  .brand{display:flex;align-items:center;gap:11px;text-decoration:none}
+  .brand .mark{width:34px;height:34px;flex:none}
+  .wordmark{font-family:var(--font-display);font-weight:600;font-size:1.34rem;
+    letter-spacing:-.01em;color:#fff}
+  .wordmark .tld{color:var(--teal)}
+  .nav-links{display:flex;align-items:center;gap:30px}
+  .nav-links a{font-family:var(--font-display);font-weight:500;font-size:.96rem;
+    text-decoration:none;color:var(--text-subtle-on-dark)}
+  .nav-links a:hover{color:#fff}
+  .nav-cta{display:flex;align-items:center;gap:18px}
+  @media(max-width:760px){.nav-links{display:none}}
+
+  /* ---------- mark colors ---------- */
+  .mark .m-conn{stroke:var(--ink)}
+  .mark .m-node{fill:var(--ink)}
+  .mark .m-hub{fill:var(--teal)}
+  .mark.rev .m-conn{stroke:#fff}
+  .mark.rev .m-node{fill:#fff}
+
+  /* ---------- hero ---------- */
+  .hero{background:var(--ink-deep);color:#fff;position:relative;overflow:hidden}
+  .hero::after{content:"";position:absolute;inset:0;pointer-events:none;
+    background:radial-gradient(620px 420px at 78% 34%,rgba(21,184,199,.16),transparent 70%)}
+  .hero-inner{position:relative;display:grid;grid-template-columns:1.15fr .85fr;
+    gap:48px;align-items:center;padding:clamp(64px,9vw,108px) 0}
+  .hero h1{font-size:clamp(2.4rem,5vw,3.85rem);font-weight:600;letter-spacing:-.025em;
+    line-height:1.04}
+  .hero h1 em{font-style:normal;color:var(--teal)}
+  .hero .lead{color:#A9BCD0;font-size:1.14rem;margin:22px 0 32px;max-width:33ch}
+  .hero-actions{display:flex;flex-wrap:wrap;gap:14px}
+  .hero-figure{display:flex;justify-content:center}
+  @media(max-width:860px){
+    .hero-inner{grid-template-columns:1fr;gap:28px}
+    .hero-figure{order:-1}
+    .hero-figure svg{max-width:300px}
+  }
+
+  /* orchestration animation */
+  .orch .conn{stroke:var(--teal);stroke-width:2;opacity:.55;
+    stroke-dasharray:1;stroke-dashoffset:1;animation:draw .7s ease forwards}
+  .orch .sat{fill:#fff;transform-box:fill-box;transform-origin:center;
+    transform:scale(0);animation:pop .45s cubic-bezier(.2,1.3,.4,1) forwards}
+  .orch .halo{fill:none;stroke:var(--teal);stroke-width:2;opacity:0;
+    transform-box:fill-box;transform-origin:center;animation:halo 3.4s ease-out 2s infinite}
+  .orch .hub{fill:var(--teal);transform-box:fill-box;transform-origin:center;
+    animation:breathe 3.4s ease-in-out 2s infinite}
+  .orch .c0{animation-delay:.2s}.orch .c1{animation-delay:.33s}.orch .c2{animation-delay:.46s}
+  .orch .c3{animation-delay:.59s}.orch .c4{animation-delay:.72s}.orch .c5{animation-delay:.85s}
+  .orch .s0{animation-delay:.7s}.orch .s1{animation-delay:.83s}.orch .s2{animation-delay:.96s}
+  .orch .s3{animation-delay:1.09s}.orch .s4{animation-delay:1.22s}.orch .s5{animation-delay:1.35s}
+  @keyframes draw{to{stroke-dashoffset:0;opacity:.55}}
+  @keyframes pop{to{transform:scale(1)}}
+  @keyframes breathe{0%,100%{transform:scale(1)}50%{transform:scale(1.07)}}
+  @keyframes halo{0%{opacity:.5;transform:scale(1)}100%{opacity:0;transform:scale(2.6)}}
+
+  /* ---------- section scaffold ---------- */
+  section{padding:clamp(72px,9vw,116px) 0;position:relative}
+  .section-head{max-width:640px;margin-bottom:52px}
+  .section-head h2{font-size:clamp(1.7rem,3.2vw,2.45rem)}
+  .section-head p{color:var(--text-muted-on-dark);margin-top:14px;font-size:1.08rem}
+
+  /* ---------- services ---------- */
+  .services{background:var(--ink);border-top:1px solid var(--line-dark-soft)}
+  .services::after{content:"";position:absolute;inset:0;pointer-events:none;
+    background:radial-gradient(540px 380px at 12% 72%,rgba(21,184,199,.09),transparent 70%)}
+  .services .container{position:relative}
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .card{background:rgba(255,255,255,.04);border:1px solid var(--line-dark);border-radius:var(--radius);
+    padding:30px 28px;transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
+  .card:hover{transform:translateY(-3px);box-shadow:0 18px 40px -24px rgba(0,0,0,.45);
+    border-color:rgba(255,255,255,.18)}
+  .card .dot{width:34px;height:34px;border-radius:9px;background:rgba(255,255,255,.08);
+    display:grid;place-items:center;margin-bottom:18px}
+  .card .dot i{display:block;width:11px;height:11px;border-radius:50%;background:var(--teal)}
+  .card h3{font-size:1.2rem;margin-bottom:9px}
+  .card p{color:var(--text-muted-on-dark);font-size:1rem}
+  @media(max-width:860px){.cards{grid-template-columns:1fr}}
+
+  /* ---------- process (a real sequence -> numbered) ---------- */
+  .how{background:var(--ink-deep);border-top:1px solid var(--line-dark-soft)}
+  .how::after{content:"";position:absolute;inset:0;pointer-events:none;
+    background:radial-gradient(480px 360px at 88% 40%,rgba(21,184,199,.07),transparent 70%)}
+  .how .container{position:relative}
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;
+    border-top:1px solid var(--line-dark)}
+  .step{padding:34px 26px 34px 0;border-right:1px solid var(--line-dark)}
+  .step:last-child{border-right:none}
+  .step .num{font-family:var(--font-mono);font-size:.8rem;color:var(--teal);
+    letter-spacing:.06em;margin-bottom:14px}
+  .step h3{font-size:1.12rem;margin-bottom:8px}
+  .step p{color:var(--text-muted-on-dark);font-size:.98rem}
+  @media(max-width:860px){
+    .steps{grid-template-columns:1fr}
+    .step{border-right:none;border-bottom:1px solid var(--line-dark);padding:26px 0}
+    .step:last-child{border-bottom:none}
+  }
+
+  /* ---------- proof ---------- */
+  .proof{background:var(--ink);text-align:center;border-top:1px solid var(--line-dark-soft)}
+  .proof::after{content:"";position:absolute;inset:0;pointer-events:none;
+    background:radial-gradient(620px 320px at 50% 50%,rgba(21,184,199,.06),transparent 72%)}
+  .proof .container{position:relative;max-width:760px}
+  .proof p{font-family:var(--font-display);font-weight:500;
+    font-size:clamp(1.3rem,2.6vw,1.85rem);line-height:1.35;letter-spacing:-.01em}
+  .proof .small{font-family:var(--font-body);font-weight:400;color:var(--text-muted-on-dark);
+    font-size:1.05rem;margin-top:18px;letter-spacing:0}
+
+  /* ---------- cta ---------- */
+  .cta{background:var(--ink-deep);color:#fff;text-align:center;border-top:1px solid var(--line-dark-soft)}
+  .cta h2{font-size:clamp(1.9rem,4vw,2.8rem);letter-spacing:-.02em}
+  .cta p{color:#A9BCD0;margin:16px auto 30px;max-width:46ch;font-size:1.1rem}
+
+  /* ---------- footer ---------- */
+  footer{background:var(--ink-deep);color:#9DB2C6;
+    border-top:1px solid rgba(255,255,255,.08);padding:40px 0}
+  .foot{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+  .foot .brand .wordmark{color:#fff;font-size:1.18rem}
+  .foot .brand .mark{width:30px;height:30px}
+  .foot .wordmark .tld{color:var(--teal)}
+  .foot a{color:#9DB2C6;text-decoration:none}
+  .foot a:hover{color:#fff}
+  .foot-links{display:flex;gap:24px;font-size:.95rem}
+  .copy{font-size:.86rem;opacity:.7;width:100%;margin-top:6px}
+
+  /* ---------- a11y ---------- */
+  a:focus-visible,.btn:focus-visible{outline:2.5px solid var(--teal);outline-offset:3px;border-radius:8px}
+  .skip{position:absolute;left:-9999px;top:0;background:var(--teal);color:var(--ink-deep);
+    padding:10px 16px;z-index:100}
+  .skip:focus{left:12px;top:12px}
+
+  @media(prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    .orch .conn{stroke-dashoffset:0;opacity:.55;animation:none}
+    .orch .sat{transform:scale(1);animation:none}
+    .orch .hub,.orch .halo{animation:none}
+    .orch .halo{opacity:0}
+    .btn,.card{transition:none}
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header>
+  <div class="container nav">
+    <a class="brand" href="/" aria-label="agentsio.dev home">
+      <svg class="mark rev" viewBox="0 0 256 256" aria-hidden="true">
+        <g class="m-conn" stroke-width="6.5" stroke-linecap="round">
+          <line x1="128" y1="128" x2="128" y2="44"/><line x1="128" y1="128" x2="200.7" y2="86"/>
+          <line x1="128" y1="128" x2="200.7" y2="170"/><line x1="128" y1="128" x2="128" y2="212"/>
+          <line x1="128" y1="128" x2="55.3" y2="170"/><line x1="128" y1="128" x2="55.3" y2="86"/>
+        </g>
+        <g class="m-node">
+          <circle cx="128" cy="44" r="14"/><circle cx="200.7" cy="86" r="14"/>
+          <circle cx="200.7" cy="170" r="14"/><circle cx="128" cy="212" r="14"/>
+          <circle cx="55.3" cy="170" r="14"/><circle cx="55.3" cy="86" r="14"/>
+        </g>
+        <circle class="m-hub" cx="128" cy="128" r="28"/>
+      </svg>
+      <span class="wordmark">agentsio<span class="tld">.dev</span></span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#services">Services</a>
+      <a href="#how">How it works</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <!-- EDIT ME: point this at your booking link (Cal.com / Calendly) or mailto -->
+      <a class="btn btn-primary" href="mailto:hello@agentsio.dev">Book a call</a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <div class="hero-copy">
+        <p class="eyebrow on-dark">// agentic workflows, in production</p>
+        <h1>AI agents that <em>do the work</em>, not just demos.</h1>
+        <p class="lead">I help teams design, build, and ship reliable agentic
+          systems — from the first map of a workflow to something running in production.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#contact">Start a conversation</a>
+          <a class="btn btn-ghost" href="#how">See how it works</a>
+        </div>
+      </div>
+      <div class="hero-figure">
+        <svg class="orch" viewBox="0 0 360 360" width="360" height="360"
+             role="img" aria-label="An orchestrator coordinating six agents">
+          <g stroke-linecap="round">
+            <line class="conn c0" pathLength="1" x1="180" y1="180" x2="180" y2="62"/>
+            <line class="conn c1" pathLength="1" x1="180" y1="180" x2="282" y2="121"/>
+            <line class="conn c2" pathLength="1" x1="180" y1="180" x2="282" y2="239"/>
+            <line class="conn c3" pathLength="1" x1="180" y1="180" x2="180" y2="298"/>
+            <line class="conn c4" pathLength="1" x1="180" y1="180" x2="78"  y2="239"/>
+            <line class="conn c5" pathLength="1" x1="180" y1="180" x2="78"  y2="121"/>
+          </g>
+          <circle class="sat s0" cx="180" cy="62"  r="16"/>
+          <circle class="sat s1" cx="282" cy="121" r="16"/>
+          <circle class="sat s2" cx="282" cy="239" r="16"/>
+          <circle class="sat s3" cx="180" cy="298" r="16"/>
+          <circle class="sat s4" cx="78"  cy="239" r="16"/>
+          <circle class="sat s5" cx="78"  cy="121" r="16"/>
+          <circle class="halo" cx="180" cy="180" r="34"/>
+          <circle class="hub"  cx="180" cy="180" r="34"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SERVICES ===================== -->
+  <section class="services" id="services">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow on-dark">What I do</p>
+        <h2>Three ways I help teams put agents to work</h2>
+        <p>Most teams don't need another chatbot. They need a specific workflow
+          done reliably, end to end. That's where I focus.</p>
+      </div>
+      <div class="cards">
+        <article class="card">
+          <div class="dot"><i></i></div>
+          <h3>Design agentic workflows</h3>
+          <p>We find the process actually worth automating, then map it into
+            agents with clear handoffs, tools, and stopping conditions.</p>
+        </article>
+        <article class="card">
+          <div class="dot"><i></i></div>
+          <h3>Build &amp; integrate</h3>
+          <p>Wire agents into your real stack, data, and tools — with the
+            guardrails, evals, and observability that make them safe to trust.</p>
+        </article>
+        <article class="card">
+          <div class="dot"><i></i></div>
+          <h3>Advise &amp; enable</h3>
+          <p>Get your engineers shipping with patterns, code reviews, and a
+            playbook your team can extend long after I'm gone.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== HOW IT WORKS (real sequence) ===================== -->
+  <section class="how" id="how">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow on-dark">How it works</p>
+        <h2>From a workflow on a whiteboard to one in production</h2>
+        <p>A typical engagement moves through four stages. We can start at any
+          one of them, depending on where you are.</p>
+      </div>
+      <div class="steps">
+        <div class="step"><div class="num">01 / Map</div><h3>Map</h3>
+          <p>Pin down the workflow worth automating and what "done well" means.</p></div>
+        <div class="step"><div class="num">02 / Prototype</div><h3>Prototype</h3>
+          <p>A working agent in days, against your real data — not a slide.</p></div>
+        <div class="step"><div class="num">03 / Harden</div><h3>Harden</h3>
+          <p>Evals, guardrails, and observability so it holds up in production.</p></div>
+        <div class="step"><div class="num">04 / Enable</div><h3>Enable</h3>
+          <p>Hand off cleanly so your team can run, trust, and extend it.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PROOF (edit to your story) ===================== -->
+  <section class="proof">
+    <div class="container">
+      <p class="eyebrow on-dark" style="text-align:center">Why me</p>
+      <p>Twenty-five years shipping production software, now focused on making
+        AI agents dependable enough to put your name on.</p>
+      <p class="small">Pragmatic over hype. If a simpler tool solves it, I'll tell you that too.</p>
+    </div>
+  </section>
+
+  <!-- ===================== CTA ===================== -->
+  <section class="cta" id="contact">
+    <div class="container">
+      <p class="eyebrow on-dark" style="text-align:center">Let's talk</p>
+      <h2>Have a workflow in mind?</h2>
+      <p>Tell me what's slow, manual, or error-prone today. If agents are a good
+        fit, I'll show you the smallest version worth building first.</p>
+      <!-- EDIT ME: swap mailto for your booking link if you use one -->
+      <a class="btn btn-primary" href="mailto:hello@agentsio.dev">Email hello@agentsio.dev</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container foot">
+    <a class="brand" href="/" aria-label="agentsio.dev home">
+      <svg class="mark rev" viewBox="0 0 256 256" aria-hidden="true">
+        <g class="m-conn" stroke-width="6.5" stroke-linecap="round">
+          <line x1="128" y1="128" x2="128" y2="44"/><line x1="128" y1="128" x2="200.7" y2="86"/>
+          <line x1="128" y1="128" x2="200.7" y2="170"/><line x1="128" y1="128" x2="128" y2="212"/>
+          <line x1="128" y1="128" x2="55.3" y2="170"/><line x1="128" y1="128" x2="55.3" y2="86"/>
+        </g>
+        <g class="m-node">
+          <circle cx="128" cy="44" r="14"/><circle cx="200.7" cy="86" r="14"/>
+          <circle cx="200.7" cy="170" r="14"/><circle cx="128" cy="212" r="14"/>
+          <circle cx="55.3" cy="170" r="14"/><circle cx="55.3" cy="86" r="14"/>
+        </g>
+        <circle class="m-hub" cx="128" cy="128" r="28"/>
+      </svg>
+      <span class="wordmark">agentsio<span class="tld">.dev</span></span>
+    </a>
+    <nav class="foot-links" aria-label="Footer">
+      <a href="#services">Services</a>
+      <a href="#how">How it works</a>
+      <a href="mailto:hello@agentsio.dev">Contact</a>
+    </nav>
+    <!-- EDIT ME: your details -->
+    <p class="copy">© 2026 agentsio.dev · Fort Worth, Texas</p>
+  </div>
+</footer>
+
+</body>
+</html>
